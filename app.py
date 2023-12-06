@@ -1,7 +1,11 @@
 from flask import Flask
 import redis
+<<<<<<< HEAD
 #changes
 #changes--2
+=======
+
+>>>>>>> parent of f483742 (need to revert)
 app = Flask(__name__)
 redis_client = redis.StrictRedis(host='localhost', port=6379, decode_responses=True)
 
