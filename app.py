@@ -1,6 +1,7 @@
 from flask import Flask
 import redis
-
+#changes
+#changes--2
 app = Flask(__name__)
 redis_client = redis.StrictRedis(host='localhost', port=6379, decode_responses=True)
 
