@@ -1,11 +1,9 @@
-from flask import Flask
+from flask import Flask, request, Response
+import requests
 import redis
-<<<<<<< HEAD
+from handle import get_contacts_count
 #changes
 #changes--2
-=======
-
->>>>>>> parent of f483742 (need to revert)
 app = Flask(__name__)
 redis_client = redis.StrictRedis(host='localhost', port=6379, decode_responses=True)
 
@@ -15,6 +13,18 @@ def hello():
     counter = str(redis_client.get('hits'))
     
     return "Welcome to this webpage! This webpage has been viewed " + counter + " time(s)"
+
+@app.route('/hunter')
+def hunter():
+    data = request.form.to_dict()
+
+    url = f"https://api.hunter.io/v2/email-count?domain={data.get('domain')}"
+    data1 = get_contacts_count(url)
+
+    return {
+        'domain_name':data.get('domain'),
+        'contacts_count':data1
+    }
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
