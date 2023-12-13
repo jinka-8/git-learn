@@ -13,7 +13,7 @@ def hello():
     counter = str(redis_client.get('hits'))
     
     return "Welcome to this webpage! This webpage has been viewed " + counter + " time(s)"
-
+#hunter api returns how many contacts have in hunter 
 @app.route('/hunter')
 def hunter():
     data = request.form.to_dict()
