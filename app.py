@@ -14,6 +14,7 @@ def hello():
     
     return "Welcome to this webpage! This webpage has been viewed " + counter + " time(s)"
 #hunter api returns how many contacts have in hunter 
+#hunter contacts count
 @app.route('/hunter')
 def hunter():
     data = request.form.to_dict()
